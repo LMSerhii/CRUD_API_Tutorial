@@ -1,6 +1,6 @@
 import Router from 'express-promise-router';
-import { healthMiddleware } from '../middlewares/index.js';
-import { healthController } from '../controllers/index.js';
+import { healthMiddleware } from '../middlewares/index';
+import { healthController } from '../controllers/index';
 
 const router = Router();
 
