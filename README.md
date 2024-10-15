@@ -52,8 +52,6 @@ SENTRY_DSN=https://<sentry-key>@o4508052301807616.ingest.de.sentry.io/4508052307
 
 The following scripts are available in **package.json**:
 
-- `npm run build` - Compiles TypeScript files into JavaScript.
-- `npm start` - Starts the server in production mode using the compiled files.
 - `npm run dev` - Runs the server in development mode with hot reloading.
 - `npm run prod` - Starts the application in production mode using `tsx`.
 - `npm run lint` - Runs **ESLint** to check for code quality issues.
@@ -71,8 +69,7 @@ The following scripts are available in **package.json**:
 
 2. **Production Mode**:
    ```bash
-   npm run build
-   npm start
+   npm run prod
    ```
 
 ## Folder Structure
@@ -84,7 +81,6 @@ The following scripts are available in **package.json**:
   - `/middlewares`: Contains request processing middlewares.
   - `/routes`: Defines different application routes.
   - `/utils`: Utility functions like error handling and request validation.
-- `/dist`: Compiled JavaScript output after running `npm run build`.
 
 ## Features
 
