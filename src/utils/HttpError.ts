@@ -1,4 +1,4 @@
-const messageList = {
+const messageList: Record<number, string> = {
   400: 'Bad Request',
   401: 'Unauthorized',
   403: 'Forbidden',
@@ -6,10 +6,18 @@ const messageList = {
   409: 'Conflict',
 };
 
-const HttpError = (status: number, message = messageList[status]) => {
-  const error = new Error(message);
-  error.status = status;
-  return error;
-};
+type StatusCode = keyof typeof messageList;
+
+class HttpError extends Error {
+  status: StatusCode;
+
+  constructor(status: StatusCode, message?: string) {
+    super(message ?? messageList[status]);
+    this.status = status;
+
+    // This ensures that the class behaves correctly in the context of inheritance.
+    Object.setPrototypeOf(this, HttpError.prototype);
+  }
+}
 
 export default HttpError;
