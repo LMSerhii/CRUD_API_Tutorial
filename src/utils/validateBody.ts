@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { Schema } from 'joi';
-import HttpError from './HttpError.js';
+import HttpError from './HttpError';
 
 const validateBody = (schema: Schema) => {
   const func = (req: Request, res: Response, next: NextFunction) => {
