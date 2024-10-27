@@ -6,7 +6,7 @@ import 'module-alias/register';
 import morgan from 'morgan';
 import CONFIG from './config';
 import routes from './routes';
-import { CustomError } from './types/customError';
+import { CustomError } from './types/custom.error';
 
 Sentry.init({
   dsn: CONFIG.SENTRY_DSN,

@@ -167,7 +167,7 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ['.eslintrc.cjs', 'webpack.config.js', 'node_modules/', 'dist/'],
+  ignorePatterns: ['.eslintrc.cjs', 'prisma/prisma.ts', 'webpack.config.js', 'node_modules/', 'dist/'],
   overrides: [
     {
       files: ['**/*.test.ts', '**/*.test.js'],

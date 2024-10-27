@@ -1,5 +1,5 @@
 import { AsyncHandler } from '@/types/AsyncHandler';
-import { CustomError } from '@/types/customError';
+import { CustomError } from '@/types/custom.error';
 import { NextFunction, Request, Response } from 'express';
 
 const catchAsync = (fn: AsyncHandler) => (req: Request, res: Response, next: NextFunction) => {

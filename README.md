@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a backend application built with **Express.js** and **TypeScript** for simple CRUD operations. It features robust error handling, validation, and a connection to a **MongoDB** database. The application uses **Sentry** for error monitoring and profiling, and it includes additional tools for ensuring code quality like **ESLint** and **Jest** for testing.
+This project is a backend application built with **Express.js** and **TypeScript** for simple CRUD operations. It features robust error handling, validation, and a connection to a **PostgreSQL\* database. The application uses **Sentry** for error monitoring and profiling, and it includes additional tools for ensuring code quality like **ESLint** and **Jest\*\* for testing.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Before starting, ensure you have the following installed:
 
 - **Node.js** (>= 14.x)
 - **npm** (>= 6.x)
-- **MongoDB**
+- **PostgreSQL**
 
 ## Installation
 
@@ -37,15 +37,15 @@ Ensure you have the following environment variables set in your `.env.*` files:
 | Variable       | Description                     |
 | -------------- | ------------------------------- |
 | `PORT`         | Port number for the server      |
-| `MONGO_DB_URL` | URL for connecting to MongoDB   |
+| `DATABASE_URL` | URL for connecting to MongoDB   |
 | `SENTRY_DSN`   | Sentry DSN for error monitoring |
 
 Example `.env.development`:
 
 ```dotenv
 PORT=4200
-MONGO_DB_URL=mongodb+srv://<username>:<password>@cluster0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/CRUD_Node_Tutorial
-SENTRY_DSN=https://<sentry-key>@o4508052301807616.ingest.de.sentry.io/4508052307443792
+DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<db-name>?schema=public;
+SENTRY_DSN=https://<sentry-key>@o<organization-id>.ingest.de.sentry.io/<project-id>
 ```
 
 ## Scripts
@@ -68,8 +68,21 @@ The following scripts are available in **package.json**:
    The server will be accessible at `http://localhost:<PORT>`.
 
 2. **Production Mode**:
+
    ```bash
    npm run prod
+   ```
+
+3. **Run Database Migration (Optional):**:
+
+   ```bash
+   npx prisma migrate --name init
+   ```
+
+   If you have added any migration scripts to manage the database structure, run:
+
+   ```bash
+   npx prisma migrate
    ```
 
 ## Folder Structure
@@ -81,11 +94,13 @@ The following scripts are available in **package.json**:
   - `/middlewares`: Contains request processing middlewares.
   - `/routes`: Defines different application routes.
   - `/utils`: Utility functions like error handling and request validation.
+  - `/services`: Contains business logic and service functions that interact with models to perform operations such as creating, updating, retrieving, and deleting data.
+  - `/migrations`: Contains database migration scripts.
 
 ## Features
 
 1. **TypeScript**: Type safety for all the code.
-2. **MongoDB Integration**: Uses **Mongoose** to interact with a MongoDB database.
+2. **PostgreSQL Integration**: Uses **Prisma** to interact with a PostgreSQL database.
 3. **Sentry Integration**: Tracks errors and performance metrics.
 4. **Error Handling**: Custom error classes (`HttpError`) and middlewares.
 5. **Validation**: Body validation with **Joi**.
