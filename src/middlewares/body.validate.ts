@@ -1,3 +1,4 @@
+import { HttpError } from '@/utils';
 import { NextFunction, Request, Response } from 'express';
 import { Schema } from 'joi';
 

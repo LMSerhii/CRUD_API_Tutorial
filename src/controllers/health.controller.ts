@@ -1,4 +1,4 @@
-import { catchAsync } from '@/utils';
+import catchAsync from '@/middlewares/async.handler';
 import { Request, Response } from 'express';
 
 const healthController = catchAsync(async (req: Request, res: Response) => {

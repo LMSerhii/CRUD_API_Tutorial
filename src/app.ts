@@ -6,7 +6,8 @@ import 'module-alias/register';
 import morgan from 'morgan';
 import CONFIG from './config';
 import routes from './routes';
-import { CustomError } from './types/custom.error';
+import { CustomError } from '@/types/CustomError';
+import { logger } from './utils';
 
 Sentry.init({
   dsn: CONFIG.SENTRY_DSN,
@@ -38,7 +39,7 @@ app.use((err: CustomError, req: Request, res: Response, _: NextFunction) => {
 });
 
 app.listen(port, () => {
-  console.log('=====================================');
-  console.log(` = Server is running on port ${port} =`);
-  console.log('=====================================');
+  logger.info(`=====================================`);
+  logger.info(`== Server is running on port ${port} ==`);
+  logger.info(`=====================================`);
 });
